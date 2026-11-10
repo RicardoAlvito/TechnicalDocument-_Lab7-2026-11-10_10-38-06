@@ -16,8 +16,18 @@ public class BrickBlock : MonoBehaviour,IHittable
         GetComponent<Collider>().isTrigger = false;
     }
 
-    public void HitFromBelow() { 
-    
+    public void HitFromBelow() {
+        if (destroyed) { return; }
+        destroyed = true;
+        if (breakEffect != null) {
+            ParticleSystem fx = Instantiate(breakEffect, transform.position, Quaternion.identity);
+            fx.Play();
+            Destroy(fx,3f);
+        }
+        if (breakSfx != null)
+        {
+            AudioSource.PlayClipAtPoint(breakSfx, transform.position);
+        }
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -29,6 +39,6 @@ public class BrickBlock : MonoBehaviour,IHittable
     // Update is called once per frame
     void Update()
     {
-        
+        HitFromBelow();
     }
 }
