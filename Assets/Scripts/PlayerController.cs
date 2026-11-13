@@ -15,11 +15,13 @@ public class PlayerController : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundLayer;
     private Rigidbody rb;
+    private PlayerFeedback playerFeedback;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true; //Congela a rotação dos eixos X, Y e Z
+        playerFeedback = GetComponent<PlayerFeedback>();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -62,6 +64,11 @@ public class PlayerController : MonoBehaviour
         rb.linearVelocity = VelocityLRd;
         //Addiciona força vertical para não ser um teletransporte  
         rb.AddForce(transform.up * jumpForce);
+        if (playerFeedback != null)
+        {
+            playerFeedback.PlayJump();//13/11/2026 23:22
+
+        }
     }
 }
 
