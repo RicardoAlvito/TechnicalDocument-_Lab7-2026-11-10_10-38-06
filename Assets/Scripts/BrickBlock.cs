@@ -18,6 +18,7 @@ public class BrickBlock : MonoBehaviour,IHittable
         // Garante que o Collider do bloco não é um Trigger
         GetComponent<Collider>().isTrigger = false;
     }
+    //When the camera gets closer to the "brick block", the songs are louder.
     [ContextMenu("Hit From Below")]
     public void HitFromBelow() {
         if (destroyed) { return; }
@@ -29,7 +30,9 @@ public class BrickBlock : MonoBehaviour,IHittable
         }
         if (breakSfx != null)
         {
-            AudioSource.PlayClipAtPoint(breakSfx, transform.position);
+            //because now the song id generate in the worlf a round and before the song is
+            //in rhe unique place of the world.
+            AudioManager.Instance.PlaySfx(breakSfx);
         }
          Destroy(gameObject);
     }

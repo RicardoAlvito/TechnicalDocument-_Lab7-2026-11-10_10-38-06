@@ -30,8 +30,9 @@ public class Token : MonoBehaviour
             
         // Toca um som ao ser colidido com o "player"
         if (pickupSfx != null)
-        {
-            AudioSource.PlayClipAtPoint(pickupSfx, transform.position);
+        {   //because now the song id generate in the worlf a round and before the song is
+            //in rhe unique place of the world
+            AudioManager.Instance.PlaySfx(pickupSfx);
         }
 
         // Se Destrói ao ser colidido com o "player"

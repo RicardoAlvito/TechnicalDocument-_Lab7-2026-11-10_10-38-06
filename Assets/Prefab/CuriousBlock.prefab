@@ -174,12 +174,13 @@ MonoBehaviour:
   contained: 1
   coinPrefab: {fileID: 8159681509778245543, guid: 9cdfb53132352544aa1efbce526b0e67, type: 3}
   powerUpPrefab: {fileID: 752436176365991527, guid: 7a916a74b23b2f6438a73b28c42e4580, type: 3}
-  popEffect: {fileID: 0}
+  popEffect: {fileID: 6862679919004395037, guid: 524c347be53b9dd46b824470e6349fd0, type: 3}
   coinLaunchForce: 6
   powerUpRiseEffect: 1.5
   popAnimationTime: 1
   usedMaterial: {fileID: 2100000, guid: 968ccc9bd20bbc9489210616107425ec, type: 2}
   popSfx: {fileID: 8300000, guid: 1a02ccf4191b56b4a8355c7a5eb3e4f8, type: 3}
+  sfxGroup: {fileID: 924673765475670891, guid: 551330b0974f4cb459734cf3f9cc4ec3, type: 2}
 --- !u!65 &3945180908286384078
 BoxCollider:
   m_ObjectHideFlags: 0

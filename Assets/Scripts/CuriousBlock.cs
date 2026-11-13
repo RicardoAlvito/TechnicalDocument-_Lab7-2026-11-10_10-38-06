@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Audio;
 
 public class CuriousBlock : MonoBehaviour, IHittable
 {
@@ -25,13 +26,16 @@ public class CuriousBlock : MonoBehaviour, IHittable
     //visual?
     public Material usedMaterial;
     public AudioClip popSfx;
-    //...
+    //musica
     private AudioSource audioSource;
     private bool used = false;
+    public AudioMixerGroup sfxGroup;
+
 
     void Awake()
     {
         audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.outputAudioMixerGroup = sfxGroup;//Define o Output por código
     }
 
     private void SpawnCoin()
